@@ -58,7 +58,7 @@ public class HttpResponse {
     public void setHeader(String headerName, String content) {
         try {
             String existingValue = headers.get(headerName.trim());
-            if (existingValue == null) existingValue = URLDecoder.decode(headerName.trim(), "UTF-8");
+            if (existingValue == null) existingValue = URLDecoder.decode(content.trim(), "UTF-8");
             else existingValue += "," + URLDecoder.decode(content.trim(), "UTF-8");
             headers.put(headerName.trim(), existingValue);
         } catch (UnsupportedEncodingException e) {
